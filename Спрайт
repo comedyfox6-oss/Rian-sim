@@ -1,0 +1,27 @@
+// RianSprite.js
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
+import { RIAN_STATES } from './rianBrain';
+
+const sprites = {
+  [RIAN_STATES.IDLE]: require('./assets/rian_idle.png'),
+  [RIAN_STATES.BLINK]: require('./assets/rian_blink.png'),
+  [RIAN_STATES.LEFT]: require('./assets/rian_left.png'),
+  [RIAN_STATES.RIGHT]: require('./assets/rian_right.png'),
+  [RIAN_STATES.JUMP]: require('./assets/rian_jump.png'),
+  [RIAN_STATES.JUMP2]: require('./assets/rian_jump2.png'),
+  [RIAN_STATES.SIT]: require('./assets/rian_sit.png'),
+  [RIAN_STATES.THINK]: require('./assets/rian_think.png'),
+};
+
+export default function RianSprite({ state }) {
+  const source = sprites[state] || sprites[RIAN_STATES.IDLE];
+  return <Image source={source} style={styles.sprite} resizeMode="contain" />;
+}
+
+const styles = StyleSheet.create({
+  sprite: {
+    width: 256,
+    height: 256,
+  },
+});
