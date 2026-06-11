@@ -1,0 +1,32 @@
+export const RIAN_STATES = {
+  IDLE: 'idle',
+  BLINK: 'blink',
+  LEFT: 'left',
+  RIGHT: 'right',
+  JUMP: 'jump',
+  JUMP2: 'jump2',
+  SIT: 'sit',
+  THINK: 'think',
+};
+
+export function getNextState(current) {
+  switch (current) {
+    case RIAN_STATES.IDLE:
+      return RIAN_STATES.BLINK;
+    case RIAN_STATES.BLINK:
+      return RIAN_STATES.LEFT;
+    case RIAN_STATES.LEFT:
+      return RIAN_STATES.RIGHT;
+    case RIAN_STATES.RIGHT:
+      return RIAN_STATES.JUMP;
+    case RIAN_STATES.JUMP:
+      return RIAN_STATES.JUMP2;
+    case RIAN_STATES.JUMP2:
+      return RIAN_STATES.SIT;
+    case RIAN_STATES.SIT:
+      return RIAN_STATES.THINK;
+    case RIAN_STATES.THINK:
+    default:
+      return RIAN_STATES.IDLE;
+  }
+}
